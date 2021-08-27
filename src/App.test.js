@@ -12,20 +12,24 @@ Enzyme.configure({ adapter: new EnzymeAdapter() })
 //   expect(wrapper.exists()).toBe(false)
 // })
 
+// const setup = () => shallow(<App />)
+
 test('render withour error', () => {
   const wrapper = shallow(<App />)
   const appComponent = wrapper.find("[data-test='component-app']")
-  expect(appComponent.length).toBe(1 )
+  expect(appComponent.length).toBe(1)
 })
+
 test('increment button', () => {
-
+  const wrapper = shallow(<App />)
+  const button = wrapper.find("[data-test='increment-button']")
+  expect(button.length).toBe(1)
 })
+
 test('counter display', () => {
-
+  const wrapper = shallow(<App />)
+  const counterDisplay = wrapper.find("[data-test='counter-display']")
+  expect(counterDisplay.length).toBe(1)
 })
-test('dispaly starts at 0', () => {
-
-})
-test('clicking on button increments counter display', () => {
-
-})
+test('display starts at 0', () => {})
+test('clicking on button increments counter display', () => {})
