@@ -12,23 +12,26 @@ Enzyme.configure({ adapter: new EnzymeAdapter() })
 //   expect(wrapper.exists()).toBe(false)
 // })
 
-// const setup = () => shallow(<App />)
+const setup = () => shallow(<App />)
+
+const findByTestAttr = (wrapper, val) =>
+  wrapper.find(`[data-test='${val}']`)
 
 test('render withour error', () => {
-  const wrapper = shallow(<App />)
-  const appComponent = wrapper.find("[data-test='component-app']")
+  const wrapper = setup()
+  const appComponent = findByTestAttr(wrapper, 'component-app')
   expect(appComponent.length).toBe(1)
 })
 
 test('increment button', () => {
-  const wrapper = shallow(<App />)
-  const button = wrapper.find("[data-test='increment-button']")
+  const wrapper = setup()
+  const button = findByTestAttr(wrapper, 'increment-button')
   expect(button.length).toBe(1)
 })
 
 test('counter display', () => {
-  const wrapper = shallow(<App />)
-  const counterDisplay = wrapper.find("[data-test='counter-display']")
+  const wrapper = setup()
+  const counterDisplay = findByTestAttr(wrapper, 'counter-display')
   expect(counterDisplay.length).toBe(1)
 })
 test('display starts at 0', () => {})
