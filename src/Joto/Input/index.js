@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const Input = ({ secretWord }) => {
-  const [currentGuess, setCurrentGuess] = React.useState('')
+  const [currentGuess, setCurrentGuess] = useState('')
 
   return (
     <div data-test='component-input'>
@@ -17,7 +17,7 @@ const Input = ({ secretWord }) => {
         />
         <button
           data-test='submit-button'
-          className='btn btn-primary'
+          className='btn btn-primary mb-2'
           onClick={(e) => {
             e.preventDefault()
           }}
