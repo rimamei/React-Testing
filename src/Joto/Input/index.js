@@ -19,7 +19,8 @@ const Input = ({ secretWord }) => {
           data-test='submit-button'
           className='btn btn-primary mb-2'
           onClick={(e) => {
-            e.preventDefault()
+            e.preventDefault();
+            setCurrentGuess('');
           }}
         >
           Submit
