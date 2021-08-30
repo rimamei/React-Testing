@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({ secretWord }) => {
+const Input = ({ success, secretWord }) => {
   const [currentGuess, setCurrentGuess] = useState('')
+
+  if (success) {
+    return <div data-test='component-input'></div>
+  }
 
   return (
     <div data-test='component-input'>
@@ -19,8 +23,8 @@ const Input = ({ secretWord }) => {
           data-test='submit-button'
           className='btn btn-primary mb-2'
           onClick={(e) => {
-            e.preventDefault();
-            setCurrentGuess('');
+            e.preventDefault()
+            setCurrentGuess('')
           }}
         >
           Submit
