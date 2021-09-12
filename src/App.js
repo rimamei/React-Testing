@@ -9,15 +9,19 @@ import Input from './Joto/Input'
 function App() {
   const [count, setCount] = useState(0)
 
+  const success = false
+  const secretWord = 'party'
+  const guessedWords = []
+
   return (
-    <div className='container'>
+    <div data-test='app-component' className='container'>
       <Counter count={count} />
       <h1>Jotto</h1>
-      <Congrats success={true} />
+      <Congrats success={success} />
       <GuessedWords
-        guessedWords={[{ guessedWord: 'train', letterMatchCount: 3 }]}
+        guessedWords={guessedWords}
       />
-      <Input />
+      <Input success={success} secretWord={secretWord} />
     </div>
   )
 }
